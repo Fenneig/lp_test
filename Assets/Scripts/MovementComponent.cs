@@ -6,12 +6,17 @@ public class MovementComponent : MonoBehaviour
     [SerializeField] private NavMeshAgent _nmAgent;
     [SerializeField] private DynamicJoystick _joystick;
     
-    [SerializeField] private float _speed;
 
     private void Update()
     {
-        _nmAgent.SetDestination(_joystick.Direction.magnitude != 0
-            ? new Vector3(_joystick.Direction.x * _speed, 0, _joystick.Direction.y * _speed)
-            : transform.position);
+        if (_joystick.Direction.x != 0 || _joystick.Direction.y != 0)
+        {
+            var moveDirection = new Vector3(_joystick.Direction.y, 0, -_joystick.Direction.x);
+            _nmAgent.SetDestination(transform.position + moveDirection);
+        }
+        else
+        {
+            _nmAgent.SetDestination(transform.position);
+        }
     }
 }

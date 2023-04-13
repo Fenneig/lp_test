@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.fenneig-games.object-pool": {
+      "version": "https://github.com/Fenneig/ObjectPool.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "e0719919139094d71f6105d1e3240b57efa468f7"
+    },
     "com.unity.cinemachine": {
       "version": "2.8.9",
       "depth": 0,

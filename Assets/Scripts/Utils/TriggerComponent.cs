@@ -1,9 +1,8 @@
 ﻿using System;
-using LavaProject.Utils;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace LavaProject
+namespace LavaProject.Utils
 {
     public class TriggerComponent : MonoBehaviour
     {

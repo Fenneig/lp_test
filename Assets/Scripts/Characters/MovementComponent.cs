@@ -1,20 +1,13 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace LavaProject.Player
+namespace LavaProject.Characters
 {
-    [RequireComponent(typeof(Animator))]
     public class MovementComponent : MonoBehaviour
     {
         [SerializeField] private NavMeshAgent _nmAgent;
-        private Animator _animator;
-        private static readonly int IsRunning = Animator.StringToHash("IsRunning");
         public Vector2 Direction { get; set; }
-
-        private void Start()
-        {
-            _animator = GetComponent<Animator>();
-        }
+        public bool IsRunning { get; private set; }
 
         private void Update()
         {
@@ -22,12 +15,12 @@ namespace LavaProject.Player
             {
                 var moveDirection = new Vector3(Direction.y, 0, -Direction.x);
                 _nmAgent.SetDestination(transform.position + moveDirection);
-                _animator.SetBool(IsRunning, true);
+                IsRunning = true;
             }
             else
             {
-                _nmAgent.SetDestination(transform.position);    
-                _animator.SetBool(IsRunning, false);
+                _nmAgent.SetDestination(transform.position);
+                IsRunning = false;
             }
         }
     }

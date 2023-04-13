@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace LavaProject.Player
+namespace LavaProject.Characters
 {
     public class PlayerInputReader : MonoBehaviour
     {

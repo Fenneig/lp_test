@@ -5,8 +5,11 @@ namespace LavaProject
 {
     public class GameSession : MonoBehaviour
     {
+        public GameSession Instance;
+        
         private void Awake()
         {
+            Instance = this;
             LoadHud();
         }
 

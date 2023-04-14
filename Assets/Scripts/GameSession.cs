@@ -5,8 +5,9 @@ namespace LavaProject
 {
     public class GameSession : MonoBehaviour
     {
-        public GameSession Instance;
         
+        public GameSession Instance { get; private set; }
+
         private void Awake()
         {
             Instance = this;

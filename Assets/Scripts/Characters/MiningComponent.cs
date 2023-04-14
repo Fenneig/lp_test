@@ -10,7 +10,8 @@ namespace LavaProject.Characters
 
         public void PickaxeHit()
         {
-            CurrentMine.Extract();
+            if (CurrentMine != null)
+                CurrentMine.Extract();
         }
     }
 }

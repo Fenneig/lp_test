@@ -11,7 +11,11 @@ GameObject:
   - component: {fileID: 65514487762110644}
   - component: {fileID: 892220843161045454}
   - component: {fileID: -4682905418019684477}
-  m_Layer: 0
+  - component: {fileID: 5635357605001896607}
+  - component: {fileID: 7964327832254249377}
+  - component: {fileID: 7855791169843790256}
+  - component: {fileID: 4934486726240603548}
+  m_Layer: 7
   m_Name: Ore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,7 +52,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _restart:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -4682905418019684477}
+        m_TargetAssemblyTypeName: LavaProject.World.Mine.Ore, Assembly-CSharp
+        m_MethodName: PlayStartAnimation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &-4682905418019684477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,6 +80,80 @@ MonoBehaviour:
   _moveDuration: 1
   _jumpForce: 3
   _numJumps: 1
+--- !u!135 &5635357605001896607
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65514487762110648}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.25
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &7964327832254249377
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65514487762110648}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &7855791169843790256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65514487762110648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3bea2af2dda4f70be2c311242efa981, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _layer:
+    serializedVersion: 2
+    m_Bits: 64
+  _enterAction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4934486726240603548}
+        m_TargetAssemblyTypeName: LavaProject.World.Mine.CollectComponent, Assembly-CSharp
+        m_MethodName: Collect
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _exitAction:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &4934486726240603548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65514487762110648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 836260a149eef3440a731811e9940f83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5294206559207002857
 GameObject:
   m_ObjectHideFlags: 0
@@ -75,7 +165,7 @@ GameObject:
   - component: {fileID: 809567270266879277}
   - component: {fileID: 1268744542061994096}
   - component: {fileID: 3912880236368357222}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}

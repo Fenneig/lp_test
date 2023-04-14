@@ -10,7 +10,7 @@ namespace LavaProject.Utils
         [SerializeField] private TriggerEvent _enterAction;
         [SerializeField] private TriggerEvent _exitAction;
 
-        private void OnTriggerEnter(Collider other)
+        private void OnTriggerStay(Collider other)
         {
             if (other.gameObject.IsInLayer(_layer)) InvokeAction(other, _enterAction);
         }

@@ -1,4 +1,5 @@
 using DG.Tweening;
+using LavaProject.Assets;
 using ObjectPool;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ namespace LavaProject.World.Mine
 {
     public class CollectComponent : MonoBehaviour
     {
+        [SerializeField] private Item _item;
         private bool _isReadyToCollect;
         public void Collect(GameObject target)
         {
@@ -32,7 +34,7 @@ namespace LavaProject.World.Mine
 
         private void OnCollectComplete()
         {
-            Debug.Log($"Collected {name}");
+            GameSession.Instance.Inventory.Add(this, _item);
             Pool.Instance.Destroy(gameObject);
         }
     }

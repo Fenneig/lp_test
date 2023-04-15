@@ -77,6 +77,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83a4e131f67c49b8b6d00b0a6e579b2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _prepareToCollectTime: 1
   _moveDuration: 1
   _jumpForce: 3
   _numJumps: 1
@@ -154,6 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 836260a149eef3440a731811e9940f83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _item: {fileID: 11400000, guid: 06629ded14847d4449c3d732ddd3324a, type: 2}
 --- !u!1 &5294206559207002857
 GameObject:
   m_ObjectHideFlags: 0

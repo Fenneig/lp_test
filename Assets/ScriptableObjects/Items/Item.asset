@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f30ba74122445549ea1886c2bdb4cb6, type: 3}
-  m_Name: Ore
+  m_Script: {fileID: 11500000, guid: b1c89a99a73b4bceaac1314c47bb86e8, type: 3}
+  m_Name: Item
   m_EditorClassIdentifier: 
-  _icon: {fileID: 0}
+  _id: blue
+  _icon: {fileID: 21300000, guid: eda11150d39d6fe40ad68bd9d4ce4bc4, type: 3}

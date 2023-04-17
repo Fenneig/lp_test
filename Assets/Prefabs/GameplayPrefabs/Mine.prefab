@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 288185283}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.55, z: 0}
+  m_LocalPosition: {x: 0, y: 0.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -44,7 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb680d8b1d2b4cf595c65c6b3ca35a84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _objectToSpawn: {fileID: 65514487762110648, guid: f5ed987f28104364eaa990ba894c560e, type: 3}
 --- !u!1 &580125925610168643
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,8 +92,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c25852d8d684e00926e8c9947ce8de5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxOreInSpot: 5
-  _refillMineTime: 10
+  _mine: {fileID: 0}
+  _collectablePrefab: {fileID: 65514487762110648, guid: cd42241de1e9b4644a712bfdaedf7c26, type: 3}
   _spawnPosition: {fileID: 288185285}
   _particle: {fileID: 6153628035878705131}
   _meshRenderer: {fileID: 580125925990827132}
@@ -108,8 +107,6 @@ GameObject:
   m_Component:
   - component: {fileID: 580125925787264398}
   - component: {fileID: 580125925787264401}
-  - component: {fileID: 580125925787264400}
-  - component: {fileID: 580125925787264399}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -159,46 +156,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &580125925787264400
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 580125925787264397}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 1
-  m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
-  m_PhysicalUnit: 3
-  m_FallbackScreenDPI: 96
-  m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
---- !u!114 &580125925787264399
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 580125925787264397}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!1 &580125925990827128
 GameObject:
   m_ObjectHideFlags: 0

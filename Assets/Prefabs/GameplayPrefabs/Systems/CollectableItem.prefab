@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7855791169843790256}
   - component: {fileID: 4934486726240603548}
   m_Layer: 7
-  m_Name: Ore
+  m_Name: CollectableItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 65514487762110648}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 3.9999998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -76,11 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83a4e131f67c49b8b6d00b0a6e579b2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _visualPrefab: {fileID: 3761745242275073796, guid: 305a388b6539d3041a283b76508de030, type: 3}
-  _prepareToCollectTime: 1
-  _moveDuration: 1
-  _jumpForce: 3
-  _numJumps: 1
+  _collectComponent: {fileID: 4934486726240603548}
 --- !u!135 &5635357605001896607
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -155,4 +151,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 836260a149eef3440a731811e9940f83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemInfo: {fileID: 11400000, guid: 7f9100bcd5097964ea9913c21bbb8a04, type: 2}

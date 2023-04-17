@@ -3,14 +3,16 @@ using LavaProject.Assets;
 using ObjectPool;
 using UnityEngine;
 
-namespace LavaProject.World.Mine
+namespace LavaProject.World.Collectable
 {
     public class CollectComponent : MonoBehaviour
     {
-        [SerializeField] private InventoryItemInfo _itemInfo;
+        [SerializeField] private ItemInfo _itemInfo;
         private bool _isReadyToCollect;
         private Item _item;
-
+        
+        public ItemInfo ItemInfo => _itemInfo;
+        
         private void Awake()
         {
             _item = new Item(_itemInfo) { State = {Amount = 1} };
@@ -30,7 +32,7 @@ namespace LavaProject.World.Mine
             collectItemSequence
                 .Append(transform.DOMove(firstPosition, 1))
                 .Append(transform.DOMove(target.transform.position, 1))
-                .OnComplete(() =>{collectItemSequence.Kill();})
+                .OnComplete(() => {collectItemSequence.Kill();})
                 .OnKill(OnCollectComplete);
         }
 

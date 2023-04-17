@@ -1,25 +1,34 @@
 ﻿using System.Collections;
+using LavaProject.Assets;
 using LavaProject.Characters;
 using LavaProject.Utils;
 using UnityEngine;
 
-namespace LavaProject.World.Mine
+namespace LavaProject.World.Collectable
 {
     public class MineDeposit : MonoBehaviour
     {
-        [SerializeField] private int _oreCapacity = 5;
-        [SerializeField] private float _refillMineTime = 10f;
+        [Space][Header("Mine type asset")]
+        [SerializeField] private Mine _mine;
+        [SerializeField] private GameObject _collectablePrefab;
+
+        [Space][Header("Systems fields")]
         [SerializeField] private SpawnComponent _spawnPosition;
         [SerializeField] private ParticleSystem _particle;
         [SerializeField] private MeshRenderer _meshRenderer;
-        
+
         private MiningComponent _playerMiningComponent;
         private int _currentOreInSpot;
         private bool _isMineReady;
+        private Color _baseColor;
 
-        private void Start()
+        private void Awake()
         {
-            _currentOreInSpot = _oreCapacity;
+            _currentOreInSpot = _mine.MineCapacity;
+
+            _spawnPosition.SetObject(_collectablePrefab);
+            _baseColor = _meshRenderer.material.color;
+
             _isMineReady = true;
         }
 
@@ -65,10 +74,10 @@ namespace LavaProject.World.Mine
         private IEnumerator RefillMine()
         {
             _meshRenderer.material.color = Color.black;
-            yield return new WaitForSeconds(_refillMineTime);
-            _meshRenderer.material.color = Color.white;
+            yield return new WaitForSeconds(_mine.MineRefillTime);
+            _meshRenderer.material.color = _baseColor;
 
-            _currentOreInSpot = _oreCapacity;
+            _currentOreInSpot = _mine.MineCapacity;
             _isMineReady = true;
             if (_playerMiningComponent != null)
                 _playerMiningComponent.IsMining = true;

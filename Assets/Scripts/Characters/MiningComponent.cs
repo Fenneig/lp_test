@@ -1,4 +1,4 @@
-﻿using LavaProject.World.Mine;
+﻿using LavaProject.World.Collectable;
 using UnityEngine;
 
 namespace LavaProject.Characters

@@ -8,8 +8,8 @@ namespace LavaProject.Inventory
     public class InventoryEndless : IInventory
     {
         public event Action<object, IInventorySlot> OnInventoryChangedEvent;
-        
-        private List<IInventorySlot> _slots;
+
+        private List<IInventorySlot> _slots = new ();
 
         public IInventoryItem GetItem(string itemId) => 
             _slots.Find(slot => slot.Item.Info.Id == itemId).Item;

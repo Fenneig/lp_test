@@ -1,40 +1,36 @@
 ﻿using System.Collections;
 using DG.Tweening;
+using LavaProject.Assets;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
-namespace LavaProject.World.Mine
+namespace LavaProject.World.Collectable
 {
     [RequireComponent(typeof(CollectComponent))]
-    public class Ore : MonoBehaviour
+    public class CollectableItem : MonoBehaviour
     {
-        [SerializeField] private GameObject _visualPrefab;
-        
-        [SerializeField] private float _prepareToCollectTime = 1f;
-        
-        [SerializeField] private float _moveDuration = 1f;
-        [SerializeField] private float _jumpForce = 3f;
-        [SerializeField] private int _numJumps = 1;
-
         private CollectComponent _collectComponent;
-        
-        private void Start()
+        private ItemInfo _itemInfo;
+
+        private void Awake()
         {
             _collectComponent = GetComponent<CollectComponent>();
-            Instantiate(_visualPrefab, transform);
+            _itemInfo = _collectComponent.ItemInfo;
+            Instantiate(_itemInfo.VisualPrefab, transform);
             PlayStartAnimation();
         }
-
+        
         public void PlayStartAnimation()
         {
             var newPosition = new Vector3(Random.Range(-5, 5), -transform.position.y + 1f, Random.Range(-5, 5));
-            transform.DOJump(transform.position + newPosition, _jumpForce, _numJumps, _moveDuration)
+            transform.DOJump(transform.position + newPosition, _itemInfo.JumpForce, _itemInfo.JumpsAmount, _itemInfo.MoveFromMineTime)
                 .SetEase(Ease.OutQuart)
                 .OnComplete(() => StartCoroutine(OnAnimationEnd()));
         }
 
         private IEnumerator OnAnimationEnd()
         {
-            yield return new WaitForSeconds(_prepareToCollectTime);
+            yield return new WaitForSeconds(_itemInfo.PrepareToCollectTime);
             
             _collectComponent.PrepareToCollect();
         }

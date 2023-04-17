@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace LavaProject.Utils
 {
-    public class MineAreaHelper : MonoBehaviour
+    public class InteractAreaHelper : MonoBehaviour
     {
         [SerializeField] private float _mineAreaRadius;
         [SerializeField] private SphereCollider _sphere;

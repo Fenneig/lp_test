@@ -1,5 +1,4 @@
-﻿using System;
-using LavaProject.Inventory;
+﻿using LavaProject.Inventory;
 using LavaProject.Inventory.Abstract;
 
 namespace LavaProject.Assets
@@ -8,7 +7,6 @@ namespace LavaProject.Assets
     {
         public IInventoryItemInfo Info { get; }
         public IInventoryItemState State { get; }
-        public Type Type => GetType();
 
         public Item(IInventoryItemInfo info)
         {

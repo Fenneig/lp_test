@@ -21,7 +21,6 @@ namespace LavaProject.Inventory.UI
 
         private void InventoryChanged(object sender, IInventorySlot inventorySlot)
         {
-            Debug.Log("Inventory changed!");
             var existSlot = _itemsList.Find(widget => widget.Slot.Item.Info.Id == inventorySlot.Item.Info.Id);
             if (existSlot != null)
             {

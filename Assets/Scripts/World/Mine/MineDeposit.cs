@@ -7,7 +7,7 @@ namespace LavaProject.World.Mine
 {
     public class MineDeposit : MonoBehaviour
     {
-        [SerializeField] private int _maxOreInSpot = 5;
+        [SerializeField] private int _oreCapacity = 5;
         [SerializeField] private float _refillMineTime = 10f;
         [SerializeField] private SpawnComponent _spawnPosition;
         [SerializeField] private ParticleSystem _particle;
@@ -19,7 +19,7 @@ namespace LavaProject.World.Mine
 
         private void Start()
         {
-            _currentOreInSpot = _maxOreInSpot;
+            _currentOreInSpot = _oreCapacity;
             _isMineReady = true;
         }
 
@@ -68,7 +68,7 @@ namespace LavaProject.World.Mine
             yield return new WaitForSeconds(_refillMineTime);
             _meshRenderer.material.color = Color.white;
 
-            _currentOreInSpot = _maxOreInSpot;
+            _currentOreInSpot = _oreCapacity;
             _isMineReady = true;
             if (_playerMiningComponent != null)
                 _playerMiningComponent.IsMining = true;

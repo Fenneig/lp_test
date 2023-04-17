@@ -1,16 +1,14 @@
-﻿using System;
-
-namespace LavaProject.Inventory.Abstract
+﻿namespace LavaProject.Inventory.Abstract
 {
     public interface IInventory
     {
-        IInventoryItem GetItem(Type itemType);
+        IInventoryItem GetItem(string itemId);
         IInventoryItem[] GetAllItems();
-        IInventoryItem[] GetAllItems(Type itemType);
-        int GetItemAmount(Type itemType);
+        IInventoryItem[] GetAllItems(string itemId);
+        int GetItemAmount(string itemId);
 
         void Add(object sender, IInventoryItem item);
-        void Remove(object sender, Type itemType, int amount = 1);
-        bool HasItem(Type type, out IInventoryItem item);
+        void Remove(object sender, string itemId, int amount = 1);
+        bool HasItem(string id, out IInventoryItem item);
     }
 }

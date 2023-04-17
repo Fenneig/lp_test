@@ -1,5 +1,4 @@
-﻿using System;
-using LavaProject.Inventory.Abstract;
+﻿using LavaProject.Inventory.Abstract;
 
 namespace LavaProject.Inventory
 {
@@ -7,8 +6,7 @@ namespace LavaProject.Inventory
     {
         public bool IsEmpty => Item == null;
         public IInventoryItem Item { get; private set; }
-        public Type ItemType => Item.Type;
-        public int Amount => IsEmpty ? 0 : Item.Amount; 
+        public int Amount => IsEmpty ? 0 : Item.State.Amount; 
         
         public void SetItem(IInventoryItem item)
         {
@@ -21,7 +19,7 @@ namespace LavaProject.Inventory
         {
             if (IsEmpty) return;
 
-            Item.Amount = 0;
+            Item.State.Amount = 0;
             Item = null;
         }
     }

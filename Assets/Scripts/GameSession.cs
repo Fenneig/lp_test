@@ -1,5 +1,4 @@
 using LavaProject.Inventory;
-using LavaProject.Inventory.Abstract;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,9 +8,9 @@ namespace LavaProject
     {
         public static GameSession Instance { get; private set; }
 
-        private IInventory _inventory;
+        private InventoryEndless _inventory;
 
-        public IInventory Inventory => _inventory;
+        public InventoryEndless Inventory => _inventory;
 
         private void Awake()
         {

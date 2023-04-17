@@ -1,20 +1,26 @@
 ﻿using System;
+using LavaProject.Inventory;
 using LavaProject.Inventory.Abstract;
-using UnityEngine;
 
 namespace LavaProject.Assets
 {
-    [CreateAssetMenu(menuName = "Assets/Item", fileName = "Item")]
-    public class Item : ScriptableObject, IInventoryItem
+    public class Item : IInventoryItem
     {
-        public SpriteRenderer _icon;
+        public IInventoryItemInfo Info { get; }
+        public IInventoryItemState State { get; }
         public Type Type => GetType();
-        public int Amount { get; set; }
+
+        public Item(IInventoryItemInfo info)
+        {
+            Info = info;
+            State = new InventoryItemState();
+        }
+
         public IInventoryItem Clone()
         {
-             var newItem = CreateInstance<Item>();
-             newItem.Amount = Amount;
-             return newItem;
+            var clonedItem = new Item(Info);
+            clonedItem.State.Amount = State.Amount;
+            return clonedItem;
         }
     }
 }

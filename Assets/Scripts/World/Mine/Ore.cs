@@ -7,6 +7,8 @@ namespace LavaProject.World.Mine
     [RequireComponent(typeof(CollectComponent))]
     public class Ore : MonoBehaviour
     {
+        [SerializeField] private GameObject _visualPrefab;
+        
         [SerializeField] private float _prepareToCollectTime = 1f;
         
         [SerializeField] private float _moveDuration = 1f;
@@ -18,6 +20,7 @@ namespace LavaProject.World.Mine
         private void Start()
         {
             _collectComponent = GetComponent<CollectComponent>();
+            Instantiate(_visualPrefab, transform);
             PlayStartAnimation();
         }
 

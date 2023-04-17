@@ -7,8 +7,15 @@ namespace LavaProject.World.Mine
 {
     public class CollectComponent : MonoBehaviour
     {
-        [SerializeField] private Item _item;
+        [SerializeField] private InventoryItemInfo _itemInfo;
         private bool _isReadyToCollect;
+        private Item _item;
+
+        private void Awake()
+        {
+            _item = new Item(_itemInfo) { State = {Amount = 1} };
+        }
+
         public void Collect(GameObject target)
         {
             if (!_isReadyToCollect) return;

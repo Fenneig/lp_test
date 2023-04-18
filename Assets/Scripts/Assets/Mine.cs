@@ -5,14 +5,12 @@ namespace LavaProject.Assets
     [CreateAssetMenu(menuName = "Assets/MineDeposit", fileName = "MineDeposit")]
     public class Mine : ScriptableObject
     {
-        [SerializeField] private ItemInfo _objectToSpawnAsset;
+        [SerializeField] private GameObject _collectableItemPrefab;
         [SerializeField] private int _mineCapacity;
         [SerializeField] private float _mineRefillTime;
-
-        public ItemInfo ObjectToSpawn => _objectToSpawnAsset;
-
+       
+        public GameObject CollectableItemPrefab => _collectableItemPrefab;
         public int MineCapacity => _mineCapacity;
-
         public float MineRefillTime => _mineRefillTime;
     }
 }

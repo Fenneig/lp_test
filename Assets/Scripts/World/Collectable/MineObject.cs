@@ -10,7 +10,6 @@ namespace LavaProject.World.Collectable
     {
         [Space][Header("Mine asset")]
         [SerializeField] private Mine _mine;
-        [SerializeField] private GameObject _collectablePrefab;
 
         [Space][Header("Systems fields")]
         [SerializeField] private SpawnComponent _spawnPosition;
@@ -26,7 +25,7 @@ namespace LavaProject.World.Collectable
         {
             _currentOreInSpot = _mine.MineCapacity;
 
-            _spawnPosition.SetObject(_collectablePrefab);
+            _spawnPosition.SetObject(_mine.CollectableItemPrefab);
             _baseColor = _meshRenderer.material.color;
 
             _isMineReady = true;

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e05e5e8e18f04b5e9bb1ac8560faee96, type: 3}
   m_Name: RubyMine
   m_EditorClassIdentifier: 
-  _objectToSpawnAsset: {fileID: 11400000, guid: 0d02910c75d6a9640abca830934fcfec, type: 2}
+  _collectableItemPrefab: {fileID: 2128036591334159601, guid: 1fff52dbfab9d0749a55117a3965da8e, type: 3}
   _mineCapacity: 5
   _mineRefillTime: 20

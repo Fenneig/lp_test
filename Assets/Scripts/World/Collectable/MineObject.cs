@@ -11,7 +11,7 @@ namespace LavaProject.World.Collectable
         [Space][Header("Mine asset")]
         [SerializeField] private Mine _mine;
 
-        [Space][Header("Systems fields")]
+        [Space][Header("System fields")]
         [SerializeField] private SpawnComponent _spawnPosition;
         [SerializeField] private ParticleSystem _particle;
         [SerializeField] private MeshRenderer _meshRenderer;
@@ -33,14 +33,8 @@ namespace LavaProject.World.Collectable
 
         public void StartMining(GameObject target)
         {
-            if (_playerMiningComponent == null)
-            {
-                if (!target.TryGetComponent(out _playerMiningComponent))
-                {
-                    return;
-                }
-            }
-            
+            if (_playerMiningComponent != null) return;
+            if (!target.TryGetComponent(out _playerMiningComponent)) return;
             _playerMiningComponent.IsMining = _isMineReady;
             _playerMiningComponent.CurrentMine = this;
         }

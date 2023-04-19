@@ -1,3 +1,4 @@
+using System.Collections;
 using DG.Tweening;
 using LavaProject.Assets;
 using ObjectPool;
@@ -10,30 +11,42 @@ namespace LavaProject.World.Collectable
         [SerializeField] private ItemInfo _itemInfo;
         private bool _isReadyToCollect;
         private Item _item;
-        
+
         public ItemInfo ItemInfo => _itemInfo;
-        
+
         private void Awake()
         {
-            _item = new Item(_itemInfo) { State = {Amount = 1} };
+            _item = new Item(_itemInfo) {State = {Amount = 1}};
         }
 
         public void Collect(GameObject target)
         {
             if (!_isReadyToCollect) return;
             _isReadyToCollect = false;
-            
-            //TODO : Сделать красивую анимацию движения в игрока через курутины!
-            
+
             var directionToTarget = target.transform.position - transform.position;
             var firstPosition = transform.position - directionToTarget + Vector3.up;
-            
+
             Sequence collectItemSequence = DOTween.Sequence();
             collectItemSequence
                 .Append(transform.DOMove(firstPosition, 1))
-                .Append(transform.DOMove(target.transform.position, 1))
-                .OnComplete(() => {collectItemSequence.Kill();})
-                .OnKill(OnCollectComplete);
+                .OnComplete(() => { collectItemSequence.Kill(); })
+                .OnKill(() => StartCoroutine(MoveToTarget(transform.position, target.transform, 1)));
+        }
+
+        private IEnumerator MoveToTarget(Vector3 startPosition, Transform targetTransform, float animationTime)
+        {
+            var time = 0f;
+            while (time <= animationTime)
+            {
+                time += Time.deltaTime;
+                var progress = time / animationTime;
+                var value = Vector3.Lerp(startPosition, targetTransform.position + Vector3.up, progress);
+                transform.position = value;
+                yield return null;
+            }
+
+            OnCollectComplete();
         }
 
         public void PrepareToCollect()

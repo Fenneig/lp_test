@@ -7,12 +7,13 @@ namespace LavaProject.Inventory
 {
     public class InventoryEndless : IInventory
     {
-        public event Action<object, IInventorySlot> OnInventoryChangedEvent;
+        public event Action<object, IInventorySlot> OnInventoryAddEvent;
+        public event Action<object, IInventorySlot> OnInventoryRemoveEvent;
 
         private List<IInventorySlot> _slots = new ();
 
         public IInventoryItem GetItem(string itemId) => 
-            _slots.Find(slot => slot.Item.Info.Id == itemId).Item;
+            _slots.FirstOrDefault(slot => slot.Item.Info.Id == itemId)?.Item;
 
         public IInventoryItem[] GetAllItems()
         {
@@ -68,7 +69,7 @@ namespace LavaProject.Inventory
                 slot.Item.State.Amount += item.State.Amount;
             }
 
-            OnInventoryChangedEvent?.Invoke(sender, slot);
+            OnInventoryAddEvent?.Invoke(sender, slot);
         }
 
         public void Remove(object sender, string itemId, int amount = 1)
@@ -78,7 +79,7 @@ namespace LavaProject.Inventory
             slotWithItem.Item.State.Amount -= amount;
             if (slotWithItem.Item.State.Amount <= 0) slotWithItem.Clear();
             
-            OnInventoryChangedEvent?.Invoke(sender, slotWithItem);
+            OnInventoryRemoveEvent?.Invoke(sender, slotWithItem);
         }
 
         public bool HasItem(string id, out IInventoryItem item)

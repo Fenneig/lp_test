@@ -15,6 +15,7 @@ MonoBehaviour:
   _id: Copper
   _icon: {fileID: 21300000, guid: 4ddb18a585aa5f642bb5ec7b3237a273, type: 3}
   _visualPrefab: {fileID: 7554455718619952994, guid: 0f470d211152fdf4689b2d8e6d74f7dd, type: 3}
+  _collectableItemPrefab: {fileID: 2128036591334159601, guid: f2c791b3aedc46b4294e2f5c573e2f94, type: 3}
   _prepareToCollectTime: 0.5
   _moveFromMineTime: 0.5
   _jumpForce: 2

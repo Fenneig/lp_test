@@ -16,7 +16,6 @@ namespace LavaProject.World.Collectable
         {
             _collectComponent = GetComponent<CollectComponent>();
             _itemInfo = _collectComponent.ItemInfo;
-            Instantiate(_itemInfo.VisualPrefab, transform);
             PlayStartAnimation();
         }
         
@@ -33,6 +32,8 @@ namespace LavaProject.World.Collectable
             yield return new WaitForSeconds(_itemInfo.PrepareToCollectTime);
             
             _collectComponent.PrepareToCollect();
+            if (_collectComponent.Target != null) 
+                _collectComponent.Collect();
         }
     }
 }

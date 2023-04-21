@@ -15,6 +15,7 @@ MonoBehaviour:
   _id: Gold
   _icon: {fileID: 21300000, guid: 9774d79b19d58c54a83d5b491ee8ac16, type: 3}
   _visualPrefab: {fileID: 5859321920461867286, guid: ef9774538b04117489c125d0ced1db95, type: 3}
+  _collectableItemPrefab: {fileID: 2128036591334159601, guid: 02cc7c9b128c7a14eadc4e63ca97889e, type: 3}
   _prepareToCollectTime: 1.5
   _moveFromMineTime: 1
   _jumpForce: 4

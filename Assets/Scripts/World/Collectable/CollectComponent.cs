@@ -1,6 +1,7 @@
 using System.Collections;
 using DG.Tweening;
 using LavaProject.Assets;
+using LavaProject.World.Collectable.Pickable;
 using ObjectPool;
 using UnityEngine;
 
@@ -13,22 +14,34 @@ namespace LavaProject.World.Collectable
         [Tooltip("Time for flying away from target animation. If this equals zero object will immediately chase target.")] 
         private float _flyAwayFromTargetTime;
         [SerializeField] [Min(0)] private float _collectTime;
+        
         private bool _isReadyToCollect;
         private Item _item;
+        private GameObject _target;
+        private IPickable _pickableComponent;
 
         public ItemInfo ItemInfo => _itemInfo;
-
-        private void Awake()
+        public GameObject Target => _target;
+        
+        
+        private void SetupItem()
         {
             _item = new Item(_itemInfo) {State = {Amount = 1}};
         }
 
-        public void Collect(GameObject target)
+        public void SetTarget(GameObject target)
+        {
+            if (_target == null)
+                _target = target;
+        }
+
+        public void Collect()
         {
             if (!_isReadyToCollect) return;
             _isReadyToCollect = false;
-            var directionToTarget = target.transform.position - transform.position;
+            var directionToTarget = _target.transform.position - transform.position;
             var firstPosition = transform.position - directionToTarget + Vector3.up;
+            _pickableComponent = _target.GetComponent<IPickable>();
 
             if (_flyAwayFromTargetTime != 0)
             {
@@ -36,11 +49,11 @@ namespace LavaProject.World.Collectable
                 collectItemSequence
                     .Append(transform.DOMove(firstPosition, _flyAwayFromTargetTime))
                     .OnComplete(() => { collectItemSequence.Kill(); })
-                    .OnKill(() => StartCoroutine(MoveToTarget(transform.position, target.transform, _collectTime)));
+                    .OnKill(() => StartCoroutine(MoveToTarget(transform.position, _target.transform, _collectTime)));
             }
             else
             {
-                StartCoroutine(MoveToTarget(transform.position, target.transform, _collectTime));
+                StartCoroutine(MoveToTarget(transform.position, _target.transform, _collectTime));
             }
         }
 
@@ -59,7 +72,6 @@ namespace LavaProject.World.Collectable
             OnCollectComplete();
         }
 
-
         public void PrepareToCollect()
         {
             _isReadyToCollect = true;
@@ -67,8 +79,10 @@ namespace LavaProject.World.Collectable
 
         private void OnCollectComplete()
         {
-            GameSession.Instance.Inventory.Add(this, _item);
+            SetupItem();
+            _pickableComponent.Pickup(this, _item);
             Pool.Instance.Destroy(gameObject);
+            _target = null;
         }
     }
 }

@@ -55,9 +55,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: SapphireCollectableItem
       objectReference: {fileID: 0}
+    - target: {fileID: 1383833139474156415, guid: cd42241de1e9b4644a712bfdaedf7c26, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: 3d4c701fbc276df4d8a6c4ff0905b088, type: 2}
     - target: {fileID: 4934486726240603548, guid: cd42241de1e9b4644a712bfdaedf7c26, type: 3}
       propertyPath: _itemInfo
       value: 
       objectReference: {fileID: 11400000, guid: 7f9100bcd5097964ea9913c21bbb8a04, type: 2}
+    - target: {fileID: 5354547927549810813, guid: cd42241de1e9b4644a712bfdaedf7c26, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5477243841145601145, guid: cd42241de1e9b4644a712bfdaedf7c26, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e74ba8446dfb56c478c015016ae5e316, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd42241de1e9b4644a712bfdaedf7c26, type: 3}

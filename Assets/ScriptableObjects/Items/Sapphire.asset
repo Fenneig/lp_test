@@ -15,6 +15,7 @@ MonoBehaviour:
   _id: Sapphire
   _icon: {fileID: 21300000, guid: eda11150d39d6fe40ad68bd9d4ce4bc4, type: 3}
   _visualPrefab: {fileID: 1582116851179696738, guid: 5453d2edfb05aad42a1335ffb68df831, type: 3}
+  _collectableItemPrefab: {fileID: 2128036591334159601, guid: f82f2a14ef98e214589ed67312be033f, type: 3}
   _prepareToCollectTime: 1
   _moveFromMineTime: 2
   _jumpForce: 5

@@ -12,7 +12,7 @@ namespace LavaProject.Inventory.UI
         private List<ItemWidget> _itemsList;
 
         private GameSession _session;
-        
+
         private void Start()
         {
             _session = GameSession.Instance;
@@ -26,7 +26,7 @@ namespace LavaProject.Inventory.UI
             foreach (var itemWidget in _itemsList)
             {
                 if (itemWidget.Slot.IsEmpty) itemWidget.gameObject.SetActive(false);
-                else if (itemWidget.Slot.Item.Info.Id == inventorySlot.Item.Info.Id)
+                else if (!inventorySlot.IsEmpty && itemWidget.Slot.Item.Info.Id == inventorySlot.Item.Info.Id)
                     itemWidget.UpdateData(inventorySlot);
             }
         }
@@ -46,6 +46,5 @@ namespace LavaProject.Inventory.UI
                 newSlot.UpdateData(inventorySlot);
             }
         }
-        
     }
 }

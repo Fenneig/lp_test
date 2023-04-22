@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using LavaProject.Assets;
+using LavaProject.Assets.Definitions;
 using LavaProject.Inventory.Abstract;
 
 namespace LavaProject.Inventory
@@ -55,6 +57,13 @@ namespace LavaProject.Inventory
             AddToSlot(sender, emptySlot ?? new InventorySlot(), item);
         }
 
+        public void Add(object sender, string id, int amount)
+        {
+            var itemInfo = DefsFacade.Instance.ItemsRepository.Get(id);
+            var inventoryItem = new Item(itemInfo) {State = {Amount = amount}};
+            Add(sender, inventoryItem);
+        }
+
         private void AddToSlot(object sender, IInventorySlot slot, IInventoryItem item)
         {
             var clonedItem = item.Clone();
@@ -62,7 +71,7 @@ namespace LavaProject.Inventory
             if (slot.IsEmpty)
             {
                 slot.SetItem(clonedItem);
-                _slots.Add(slot);
+                if (!_slots.Contains(slot)) _slots.Add(slot);
             }
             else
             {

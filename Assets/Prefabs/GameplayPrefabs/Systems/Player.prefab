@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1167466848}
   - component: {fileID: 1167466849}
+  - component: {fileID: 1125358591}
   m_Layer: 6
   m_Name: CollectRadius
   m_TagString: Untagged
@@ -45,6 +46,18 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1125358591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1167466847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f3eb95fa3954b31a6aa0e5be603a280, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1652005229317200506
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,6 +271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnComponent: {fileID: 1919497178}
+  _movementComponent: {fileID: 1652005229317200496}
 --- !u!114 &1919497178
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,9 +12,11 @@ namespace LavaProject.Utils
             _objectToSpawn = objectToSpawn;
         }
 
-        public GameObject Spawn()
+        public GameObject Spawn(bool isPoolItem = true)
         {
-            return Pool.Instance.Get(_objectToSpawn, transform.position, Quaternion.identity);
+            return isPoolItem ? 
+                Pool.Instance.Get(_objectToSpawn, transform.position, Quaternion.identity) : 
+                Instantiate(_objectToSpawn, transform.position, Quaternion.identity);
         }
     }
 }

@@ -19,6 +19,18 @@ namespace LavaProject.Inventory.UI
             _itemsList = new List<ItemWidget>();
             _session.Inventory.OnInventoryAddEvent += InventoryAdd;
             _session.Inventory.OnInventoryRemoveEvent += InventoryRemove;
+            InitLoadedHud();
+        }
+
+        private void InitLoadedHud()
+        {
+            var slots = _session.Inventory.GetAllSlots();
+            foreach (var slot in slots)
+            {
+                var newSlot = Instantiate(_itemWidgetPrefab, transform);
+                _itemsList.Add(newSlot);
+                newSlot.UpdateData(slot);
+            }
         }
 
         private void InventoryRemove(object sender, IInventorySlot inventorySlot)

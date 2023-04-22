@@ -1,10 +1,11 @@
-﻿using LavaProject.Inventory.Abstract;
+﻿using LavaProject.Assets.Definitions;
+using LavaProject.Inventory.Abstract;
 using UnityEngine;
 
 namespace LavaProject.Assets
 {
     [CreateAssetMenu(menuName = "Assets/CollectableItem", fileName = "CollectableItem")]
-    public class ItemInfo : ScriptableObject, IInventoryItemInfo
+    public class ItemInfo : ScriptableObject, IInventoryItemInfo, IHaveId
     {
         [SerializeField] private string _id;
         [Space][Header("UI Info")]

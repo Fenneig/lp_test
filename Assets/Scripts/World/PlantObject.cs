@@ -3,6 +3,7 @@ using LavaProject.Assets;
 using LavaProject.Characters;
 using LavaProject.Inventory.Abstract;
 using LavaProject.Utils;
+using LavaProject.Utils.HUD;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,10 +24,14 @@ namespace LavaProject.World.Collectable
         [SerializeField] private TextMeshProUGUI _textPriceAmount;
         [SerializeField] private Image _imageIconOutput;
         [SerializeField] private TextMeshProUGUI _textProduceAmount;
+        [SerializeField] private GameObject[] _hudObjectsToHide;
+        [SerializeField] private ProgressBar _progressBar;
 
         private int _itemsLeftForExchange;
         private bool _isPauseBetweenPays;
-        private ExchangeComponent _playerExchangeComponent;
+        private ExchangeComponent _playerExchangeComponent;      
+        private Color _baseColor;
+
 
         private void Awake()
         {
@@ -36,6 +41,7 @@ namespace LavaProject.World.Collectable
             _textProduceAmount.text = _plant.ObjectsAmountProduce.ToString();
             _itemsLeftForExchange = _plant.ObjectsAmountAsPrice;
             _spawnPosition.SetObject(_plant.ObjectOutputAsset.CollectableItemPrefab);
+            _baseColor = _visualMeshRenderer.material.color;
         }
 
         public void StartExchange(GameObject target)
@@ -65,12 +71,32 @@ namespace LavaProject.World.Collectable
         
         private IEnumerator ExchangeProcess()
         {
-            _visualMeshRenderer.material.color = Color.black;
-            yield return new WaitForSeconds(_plant.ProduceTime);
-            _visualMeshRenderer.material.color = Color.white;
+            var time = 0f;
+
+            SetHudVisibility(false);
+            
+            while (time <_plant.ProduceTime)
+            {
+                time += Time.deltaTime;
+                var progress = time / _plant.ProduceTime;
+                _progressBar.SetProgress(progress);
+                yield return null;
+            }
+
+            SetHudVisibility(true);
             _spawnPosition.Spawn();
             _itemsLeftForExchange = _plant.ObjectsAmountAsPrice;
             _textPriceAmount.text = _itemsLeftForExchange.ToString();
+        }
+
+        private void SetHudVisibility(bool state)
+        {
+            _visualMeshRenderer.material.color = state ? _baseColor : Color.black;
+            _progressBar.gameObject.SetActive(!state);
+            foreach (var hudGameObject in _hudObjectsToHide)
+            {
+                hudGameObject.SetActive(state);
+            }
         }
     }
 }

@@ -2,6 +2,7 @@
 using LavaProject.Assets;
 using LavaProject.Characters;
 using LavaProject.Utils;
+using LavaProject.Utils.HUD;
 using UnityEngine;
 
 namespace LavaProject.World.Collectable
@@ -15,6 +16,9 @@ namespace LavaProject.World.Collectable
         [SerializeField] private SpawnComponent _spawnPosition;
         [SerializeField] private ParticleSystem _particle;
         [SerializeField] private MeshRenderer _meshRenderer;
+
+        [Space] [Header("HUD")] 
+        [SerializeField] private ProgressBar _progressBar;
 
         private MiningComponent _playerMiningComponent;
         private int _currentOreInSpot;
@@ -67,9 +71,18 @@ namespace LavaProject.World.Collectable
         private IEnumerator RefillMine()
         {
             _meshRenderer.material.color = Color.black;
-            yield return new WaitForSeconds(_mine.MineRefillTime);
+            var time = 0f;
+            _progressBar.gameObject.SetActive(true);
+            while (time < _mine.MineRefillTime)
+            {
+                time += Time.deltaTime;
+                var progress = time / _mine.MineRefillTime;
+                _progressBar.SetProgress(progress);
+                yield return null;
+            }
+            
+            _progressBar.gameObject.SetActive(false);
             _meshRenderer.material.color = _baseColor;
-
             _currentOreInSpot = _mine.MineCapacity;
             _isMineReady = true;
             if (_playerMiningComponent != null)

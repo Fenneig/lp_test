@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace LavaProject.Inventory
+namespace LavaProject.Systems
 {
     [Serializable]
     public class InventorySaveData

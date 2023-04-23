@@ -1,4 +1,5 @@
 ﻿using LavaProject.Utils;
+using LavaProject.World;
 using LavaProject.World.Collectable;
 using UnityEngine;
 
@@ -15,7 +16,7 @@ namespace LavaProject.Characters
         private string _itemId;
         private GameObject _targetPlant;
 
-        public GameObject Spawn()
+        private GameObject Spawn()
         {
             ReadyForExchange = false;
             return _spawnComponent.Spawn();
@@ -37,6 +38,7 @@ namespace LavaProject.Characters
             GameSession.Instance.Inventory.Remove(this, _itemId, spawnAmount);
         }
 
+        //TODO: Возможно нужну добавить какой-нибудь интерфейс для замены PlantObject, чтобы не создавать зависимость от фабрик
         public void SetupExchange(GameObject collectableItemPrefab, PlantObject targetPlant, int needItemsToSpawn, string itemId)
         {
             _spawnComponent.SetObject(collectableItemPrefab);

@@ -9,6 +9,7 @@ namespace LavaProject.Inventory.UI
     {
         [SerializeField] private Image _imageIcon;
         [SerializeField] private TextMeshProUGUI _textAmount;
+        [SerializeField] private ParticleSystem _particle;
 
         public IInventorySlot Slot { get; private set; }
 
@@ -29,6 +30,11 @@ namespace LavaProject.Inventory.UI
         {
             _imageIcon.gameObject.SetActive(false);
             _textAmount.gameObject.SetActive(false);
+        }
+
+        public void PlayVisualEffect()
+        {
+            _particle.Play();
         }
     }
 }

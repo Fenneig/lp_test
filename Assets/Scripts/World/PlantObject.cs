@@ -8,7 +8,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace LavaProject.World.Collectable
+namespace LavaProject.World
 {
     public class PlantObject : MonoBehaviour
     {

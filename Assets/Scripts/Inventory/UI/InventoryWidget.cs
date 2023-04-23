@@ -50,12 +50,14 @@ namespace LavaProject.Inventory.UI
             {
                 existSlot.UpdateData(inventorySlot);
                 existSlot.gameObject.SetActive(true);
+                existSlot.PlayVisualEffect();
             }
             else
             {
                 var newSlot = Instantiate(_itemWidgetPrefab, transform);
                 _itemsList.Add(newSlot);
                 newSlot.UpdateData(inventorySlot);
+                newSlot.PlayVisualEffect();
             }
         }
     }

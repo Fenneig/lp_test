@@ -5,7 +5,7 @@ using LavaProject.Utils;
 using LavaProject.Utils.HUD;
 using UnityEngine;
 
-namespace LavaProject.World.Collectable
+namespace LavaProject.World
 {
     public class MineObject : MonoBehaviour
     {

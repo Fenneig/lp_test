@@ -19,12 +19,46 @@ namespace LavaProject
 
         private void Awake()
         {
-            Instance = this;
-            _inventory = new InventoryEndless();
-            _saveSystem = new SaveSystem(_inventory);
+            var existSessions = GetExistSession();
+
+            if (existSessions != null)
+            {
+                existSessions.StartSession();
+                Destroy(gameObject);
+            }
+            else
+            {
+                Instance = this;
+                DontDestroyOnLoad(this);
+                _inventory = new InventoryEndless();
+                _saveSystem = new SaveSystem(_inventory);
+                StartSession();
+            }
+        }
+
+        private GameSession GetExistSession()
+        {
+            var sessions = FindObjectsOfType<GameSession>();
+            foreach (var gameSession in sessions)
+            {
+                if (gameSession != this)
+                    return gameSession;
+            }
+
+            return null;
+        }
+
+        private void StartSession()
+        {
             LoadHud();
+            SpawnHero();
             _saveSystem.LoadData();
+        }
+
+        private void SpawnHero()
+        {
             Player = _playerSpawnPosition.Spawn(false);
+
         }
 
         private void LoadHud()

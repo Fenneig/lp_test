@@ -7,6 +7,8 @@ namespace LavaProject.Systems
 {
     public class SaveSystem
     {
+        public bool IsTutorialComplete;
+        
         private InventoryEndless _inventory;
 
         public SaveSystem(InventoryEndless inventory)
@@ -18,11 +20,12 @@ namespace LavaProject.Systems
         {
             BinaryFormatter bf = new BinaryFormatter(); 
             FileStream file = File.Create(Application.persistentDataPath + "/SaveData.dat");
-            InventorySaveData saveData = new InventorySaveData();
+            SaveData saveData = new SaveData();
             foreach (var item in _inventory.GetAllItems())
             {
                 saveData.Data.Add(item.Info.Id, item.State.Amount);
             }
+            saveData.IsTutorialComplete = IsTutorialComplete;
             bf.Serialize(file, saveData);
             file.Close();
             Debug.Log("Game data saved!");
@@ -34,12 +37,13 @@ namespace LavaProject.Systems
             {
                 BinaryFormatter bf = new BinaryFormatter();
                 FileStream file = File.Open(Application.persistentDataPath + "/SaveData.dat", FileMode.Open);
-                InventorySaveData saveData = (InventorySaveData)bf.Deserialize(file);
+                SaveData saveData = (SaveData)bf.Deserialize(file);
                 file.Close();
                 foreach (var item in saveData.Data)
                 {
                     _inventory.Add(this, item.Key, item.Value);
                 }
+                IsTutorialComplete = saveData.IsTutorialComplete;
                 Debug.Log("Game data loaded!");
             }
         }

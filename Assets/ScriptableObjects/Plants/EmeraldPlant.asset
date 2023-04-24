@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c6130a96c864aaa8871fd90315f6da0, type: 3}
+  m_Name: EmeraldPlant
+  m_EditorClassIdentifier: 
+  _id: EmeraldPlant
+  _objectPriceAsset: {fileID: 11400000, guid: 881aa5de76f196d4aaab56be9a626027, type: 2}
+  _objectOutputAsset: {fileID: 11400000, guid: 1f56fae8244ed3c41b5cf7992dd128f9, type: 2}
+  _objectsAmountAsPrice: 3
+  _objectsAmountProduce: 5
+  _produceTime: 10

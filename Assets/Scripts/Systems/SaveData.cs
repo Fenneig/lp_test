@@ -4,11 +4,12 @@ using System.Collections.Generic;
 namespace LavaProject.Systems
 {
     [Serializable]
-    public class InventorySaveData
+    public class SaveData
     {
         public Dictionary<string, int> Data;
+        public bool IsTutorialComplete;
 
-        public InventorySaveData()
+        public SaveData()
         {
             Data = new Dictionary<string, int>();
         }

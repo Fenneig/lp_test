@@ -5,6 +5,7 @@ using LavaProject.Characters;
 using LavaProject.Utils;
 using LavaProject.Utils.HUD;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace LavaProject.World
 {
@@ -17,6 +18,7 @@ namespace LavaProject.World
         [SerializeField] private SpawnComponent _spawnPosition;
         [SerializeField] private ParticleSystem _particle;
         [SerializeField] private MeshRenderer _meshRenderer;
+        [SerializeField] private UnityEvent _extractActionComplete;
         
         [Space][Header("Shake effect")]
         [SerializeField] private Transform _mineTransform;
@@ -75,6 +77,7 @@ namespace LavaProject.World
 
             if (_currentItemsInSpot == 0)
             {
+                _extractActionComplete?.Invoke();
                 _isMineReady = false;
                 _playerMiningComponent.IsMining = false;
                 StartCoroutine(RefillMine());

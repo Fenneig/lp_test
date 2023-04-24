@@ -15,6 +15,7 @@ namespace LavaProject
         public static GameSession Instance { get; private set; }
         public InventoryEndless Inventory => _inventory;
         public GameObject Player { get; private set; }
+        public bool IsTutorialComplete => _saveSystem.IsTutorialComplete;
 
         private void Awake()
         {
@@ -31,16 +32,21 @@ namespace LavaProject
             SceneManager.LoadScene("HUD", LoadSceneMode.Additive);
             SceneManager.LoadScene("Controls", LoadSceneMode.Additive);
         }
-        
+
+        private void OnApplicationQuit()
+        {
+            _saveSystem.SaveData();
+        }
+
+        public void CompleteTutorial()
+        {
+            _saveSystem.IsTutorialComplete = true;
+        }
+
         [ContextMenu("Reset save")]
         public void ResetSave()
         {
             SaveSystem.ResetSave();
-        }
-        
-        private void OnApplicationQuit()
-        {
-            _saveSystem.SaveData();
         }
     }
 }

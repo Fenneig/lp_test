@@ -29,13 +29,13 @@ namespace LavaProject.World
         [SerializeField] private ProgressBar _progressBar;
 
         private MiningComponent _playerMiningComponent;
-        private int _currentOreInSpot;
+        private int _currentItemsInSpot;
         private bool _isMineReady;
         private Color _baseColor;
 
         private void Awake()
         {
-            _currentOreInSpot = _mine.MineCapacity;
+            _currentItemsInSpot = _mine.MineCapacity;
 
             _spawnPosition.SetObject(_mine.CollectableItemPrefab);
             _baseColor = _meshRenderer.material.color;
@@ -61,15 +61,19 @@ namespace LavaProject.World
 
         public void Extract()
         {
-            if (_currentOreInSpot > 0)
+            if (_currentItemsInSpot > 0)
             {
-                _currentOreInSpot--;
-                _spawnPosition.Spawn();
+                var extractAmount = Mathf.Min(_currentItemsInSpot, _mine.DropWithSingleSwing);
+                _currentItemsInSpot -= extractAmount;
+                for (int i = 0; i < extractAmount; i++)
+                {
+                    _spawnPosition.Spawn();
+                }
                 _particle.Play();
                 _mineTransform.DOShakePosition(_duration, _strength, _vibrato, _randomness);
             }
 
-            if (_currentOreInSpot == 0)
+            if (_currentItemsInSpot == 0)
             {
                 _isMineReady = false;
                 _playerMiningComponent.IsMining = false;
@@ -92,7 +96,7 @@ namespace LavaProject.World
             
             _progressBar.gameObject.SetActive(false);
             _meshRenderer.material.color = _baseColor;
-            _currentOreInSpot = _mine.MineCapacity;
+            _currentItemsInSpot = _mine.MineCapacity;
             _isMineReady = true;
             if (_playerMiningComponent != null)
                 _playerMiningComponent.IsMining = true;

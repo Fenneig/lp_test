@@ -946,6 +946,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 812410476294777818}
     m_Modifications:
+    - target: {fileID: 1022459527241917773, guid: 19a6906a87ddd554d89132921dcffe96, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1670642897055465289, guid: 19a6906a87ddd554d89132921dcffe96, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2658848007894357819, guid: 19a6906a87ddd554d89132921dcffe96, type: 3}
+      propertyPath: m_ShowMaskGraphic
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6471284553629921130, guid: 19a6906a87ddd554d89132921dcffe96, type: 3}
       propertyPath: m_Name
       value: ProgressBar
@@ -988,7 +1000,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6765116209908591932, guid: 19a6906a87ddd554d89132921dcffe96, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: -0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6765116209908591932, guid: 19a6906a87ddd554d89132921dcffe96, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6765116209908591932, guid: 19a6906a87ddd554d89132921dcffe96, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6765116209908591932, guid: 19a6906a87ddd554d89132921dcffe96, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1036,6 +1056,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6765116209908591932, guid: 19a6906a87ddd554d89132921dcffe96, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6817786698763028656, guid: 19a6906a87ddd554d89132921dcffe96, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8349488304109083040, guid: 19a6906a87ddd554d89132921dcffe96, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8349488304109083040, guid: 19a6906a87ddd554d89132921dcffe96, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8349488304109083040, guid: 19a6906a87ddd554d89132921dcffe96, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8349488304109083040, guid: 19a6906a87ddd554d89132921dcffe96, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

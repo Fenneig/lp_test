@@ -14,9 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: Ruby
   _icon: {fileID: 21300000, guid: cc5182e93c953ec45b63d4b8eccce0f8, type: 3}
-  _visualPrefab: {fileID: 2338430342723039925, guid: 3fd221cd19f003543bf74269dd6ee9d6, type: 3}
   _collectableItemPrefab: {fileID: 2128036591334159601, guid: 1fff52dbfab9d0749a55117a3965da8e, type: 3}
-  _prepareToCollectTime: 1
-  _moveFromMineTime: 2
-  _jumpForce: 5
-  _jumpsAmount: 1
+  _prepareToCollectTime: 0.5
+  _moveFromMineTime: 0.5
+  _jumpForce: 3

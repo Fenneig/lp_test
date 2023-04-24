@@ -22,7 +22,7 @@ namespace LavaProject.World.Collectable
         public void PlayStartAnimation()
         {
             var newPosition = new Vector3(Random.Range(-5, 5), -transform.position.y + 1f, Random.Range(-5, 5));
-            transform.DOJump(transform.position + newPosition, _itemInfo.JumpForce, _itemInfo.JumpsAmount, _itemInfo.MoveFromMineTime)
+            transform.DOJump(transform.position + newPosition, _itemInfo.JumpForce, 1, _itemInfo.MoveFromMineTime)
                 .SetEase(Ease.OutQuart)
                 .OnComplete(() => StartCoroutine(OnAnimationEnd()));
         }

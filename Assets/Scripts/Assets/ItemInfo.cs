@@ -17,7 +17,6 @@ namespace LavaProject.Assets
         [Space][Header("Mine visual info")]
         [SerializeField] private float _moveFromMineTime;
         [SerializeField] private float _jumpForce;
-        [SerializeField] private int _jumpsAmount;
 
         public string Id => _id;
         public Sprite SpriteIcon => _icon;
@@ -25,6 +24,5 @@ namespace LavaProject.Assets
         public float PrepareToCollectTime => _prepareToCollectTime;
         public float MoveFromMineTime => _moveFromMineTime;
         public float JumpForce => _jumpForce;
-        public int JumpsAmount => _jumpsAmount;
     }
 }

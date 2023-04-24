@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e05e5e8e18f04b5e9bb1ac8560faee96, type: 3}
   m_Name: CopperMine
   m_EditorClassIdentifier: 
+  _id: CopperMine
   _collectableItemPrefab: {fileID: 2128036591334159601, guid: f2c791b3aedc46b4294e2f5c573e2f94, type: 3}
-  _mineCapacity: 10
+  _mineCapacity: 20
+  _dropWithSingleSwing: 5
   _mineRefillTime: 5

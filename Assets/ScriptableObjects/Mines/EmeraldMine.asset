@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e05e5e8e18f04b5e9bb1ac8560faee96, type: 3}
   m_Name: EmeraldMine
   m_EditorClassIdentifier: 
+  _id: EmeraldMine
   _collectableItemPrefab: {fileID: 2128036591334159601, guid: 76dc0c11a1f7f3c4e8487f044a4593f9, type: 3}
   _mineCapacity: 3
+  _dropWithSingleSwing: 1
   _mineRefillTime: 15

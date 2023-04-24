@@ -9,11 +9,13 @@ namespace LavaProject.Assets
         [SerializeField] private string _id;
         [SerializeField] private GameObject _collectableItemPrefab;
         [SerializeField] private int _mineCapacity;
+        [SerializeField] private int _dropWithSingleSwing;
         [SerializeField] private float _mineRefillTime;
        
         public string Id => _id;
         public GameObject CollectableItemPrefab => _collectableItemPrefab;
         public int MineCapacity => _mineCapacity;
+        public int DropWithSingleSwing => _dropWithSingleSwing;
         public float MineRefillTime => _mineRefillTime;
     }
 }

@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e05e5e8e18f04b5e9bb1ac8560faee96, type: 3}
   m_Name: GoldMine
   m_EditorClassIdentifier: 
+  _id: GoldMine
   _collectableItemPrefab: {fileID: 2128036591334159601, guid: 02cc7c9b128c7a14eadc4e63ca97889e, type: 3}
   _mineCapacity: 1
+  _dropWithSingleSwing: 1
   _mineRefillTime: 20

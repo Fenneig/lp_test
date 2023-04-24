@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c6130a96c864aaa8871fd90315f6da0, type: 3}
   m_Name: Plant
   m_EditorClassIdentifier: 
+  _id: BasePlant
   _objectPriceAsset: {fileID: 11400000, guid: c1d69ca26f34e13419427c731eda7b62, type: 2}
-  _objectPriceCollectableItemPrefab: {fileID: 2128036591334159601, guid: f2c791b3aedc46b4294e2f5c573e2f94, type: 3}
   _objectOutputAsset: {fileID: 11400000, guid: 881aa5de76f196d4aaab56be9a626027, type: 2}
-  _objectsAmountAsPrice: 5
+  _objectsAmountAsPrice: 2
   _objectsAmountProduce: 1
   _produceTime: 4

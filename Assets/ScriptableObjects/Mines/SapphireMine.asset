@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e05e5e8e18f04b5e9bb1ac8560faee96, type: 3}
   m_Name: SapphireMine
   m_EditorClassIdentifier: 
+  _id: SapphireMine
   _collectableItemPrefab: {fileID: 2128036591334159601, guid: f82f2a14ef98e214589ed67312be033f, type: 3}
-  _mineCapacity: 5
+  _mineCapacity: 10
+  _dropWithSingleSwing: 2
   _mineRefillTime: 15

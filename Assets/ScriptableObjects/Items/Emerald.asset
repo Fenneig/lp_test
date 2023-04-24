@@ -14,9 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: Emerald
   _icon: {fileID: 21300000, guid: 51e70324ba7759840b73f0d6e0353b72, type: 3}
-  _visualPrefab: {fileID: 4809293084712509850, guid: 3dbd0e3c9dbc0ee47841559428475c93, type: 3}
   _collectableItemPrefab: {fileID: 2128036591334159601, guid: 76dc0c11a1f7f3c4e8487f044a4593f9, type: 3}
-  _prepareToCollectTime: 1.5
-  _moveFromMineTime: 2
-  _jumpForce: 5
-  _jumpsAmount: 1
+  _prepareToCollectTime: 0.5
+  _moveFromMineTime: 0.5
+  _jumpForce: 3

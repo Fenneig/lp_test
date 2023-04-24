@@ -87,7 +87,11 @@ namespace LavaProject.World
             IsExchangeInProgress = false;
             
             SetHudVisibility(true);
-            _spawnPosition.Spawn();
+            for (int i = 0; i < _plant.ObjectsAmountProduce; i++)
+            {
+                _spawnPosition.Spawn();
+            }
+
             _itemsLeftForExchange = _plant.ObjectsAmountAsPrice;
             _textPriceAmount.text = _itemsLeftForExchange.ToString();
         }

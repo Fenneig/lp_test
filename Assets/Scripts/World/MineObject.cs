@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using DG.Tweening;
 using LavaProject.Assets;
 using LavaProject.Characters;
 using LavaProject.Utils;
@@ -16,6 +17,13 @@ namespace LavaProject.World
         [SerializeField] private SpawnComponent _spawnPosition;
         [SerializeField] private ParticleSystem _particle;
         [SerializeField] private MeshRenderer _meshRenderer;
+        
+        [Space][Header("Shake effect")]
+        [SerializeField] private Transform _mineTransform;
+        [SerializeField] private float _duration = .5f;
+        [SerializeField] private float _strength = 1f;
+        [SerializeField] private int _vibrato = 10;
+        [SerializeField] private float _randomness = 90f;
 
         [Space] [Header("HUD")] 
         [SerializeField] private ProgressBar _progressBar;
@@ -58,6 +66,7 @@ namespace LavaProject.World
                 _currentOreInSpot--;
                 _spawnPosition.Spawn();
                 _particle.Play();
+                _mineTransform.DOShakePosition(_duration, _strength, _vibrato, _randomness);
             }
 
             if (_currentOreInSpot == 0)

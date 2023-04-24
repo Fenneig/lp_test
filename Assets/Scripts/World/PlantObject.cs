@@ -27,11 +27,12 @@ namespace LavaProject.World
         [SerializeField] private GameObject[] _hudObjectsToHide;
         [SerializeField] private ProgressBar _progressBar;
 
+
         private int _itemsLeftForExchange;
-        private bool _isPauseBetweenPays;
-        private ExchangeComponent _playerExchangeComponent;      
+        private ExchangeComponent _playerExchangeComponent;
         private Color _baseColor;
 
+        public bool IsExchangeInProgress { get; set; }
 
         private void Awake()
         {
@@ -46,7 +47,7 @@ namespace LavaProject.World
 
         public void StartExchange(GameObject target)
         {
-            if (_playerExchangeComponent != null) return;
+            if (_playerExchangeComponent != null || IsExchangeInProgress) return;
             if (!target.TryGetComponent(out ExchangeComponent exchangeComponent)) return;
             _playerExchangeComponent = exchangeComponent;
             _playerExchangeComponent.SetupExchange(_plant.ObjectPriceAsset.CollectableItemPrefab, this, _itemsLeftForExchange,
@@ -83,6 +84,8 @@ namespace LavaProject.World
                 yield return null;
             }
 
+            IsExchangeInProgress = false;
+            
             SetHudVisibility(true);
             _spawnPosition.Spawn();
             _itemsLeftForExchange = _plant.ObjectsAmountAsPrice;

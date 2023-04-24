@@ -62,7 +62,7 @@ PrefabInstance:
     - target: {fileID: 580125925610168649, guid: fd61c60e56eee86488fce892f37b41ff, type: 3}
       propertyPath: _particle
       value: 
-      objectReference: {fileID: 6380702935775919563}
+      objectReference: {fileID: 8893823729921356421}
     - target: {fileID: 580125925610168649, guid: fd61c60e56eee86488fce892f37b41ff, type: 3}
       propertyPath: _meshRenderer
       value: 
@@ -97,8 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb680d8b1d2b4cf595c65c6b3ca35a84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!198 &6380702935775919563 stripped
+--- !u!198 &8893823729921356421 stripped
 ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 6153628035878705131, guid: fd61c60e56eee86488fce892f37b41ff, type: 3}
+  m_CorrespondingSourceObject: {fileID: 8541056989923285157, guid: fd61c60e56eee86488fce892f37b41ff, type: 3}
   m_PrefabInstance: {fileID: 1002855329674324512}
   m_PrefabAsset: {fileID: 0}

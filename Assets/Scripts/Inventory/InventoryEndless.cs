@@ -14,8 +14,16 @@ namespace LavaProject.Inventory
 
         private List<IInventorySlot> _slots = new ();
 
-        public IInventoryItem GetItem(string itemId) => 
-            _slots.FirstOrDefault(slot => slot.Item.Info.Id == itemId)?.Item;
+        public IInventoryItem GetItem(string itemId)
+        {
+            foreach (var slot in _slots)
+            {
+                if (slot.IsEmpty) continue;
+                if (slot.Item.Info.Id == itemId) return slot.Item;
+            }
+
+            return null;
+        }
 
         public IInventoryItem[] GetAllItems()
         {

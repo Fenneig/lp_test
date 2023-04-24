@@ -14,7 +14,7 @@ namespace LavaProject.Characters
         
         private int _needItemsToSpawn;
         private string _itemId;
-        private GameObject _targetPlant;
+        private PlantObject _targetPlant;
 
         private GameObject Spawn()
         {
@@ -28,21 +28,24 @@ namespace LavaProject.Characters
             if (!GameSession.Instance.Inventory.HasItem(_itemId, out var item)) return;  
             
             var spawnAmount = Mathf.Min(item.State.Amount, _needItemsToSpawn);
+            
+            if (spawnAmount == _needItemsToSpawn) _targetPlant.IsExchangeInProgress = true;
+            
             for (int i = 0; i < spawnAmount; i++)
             {
                 var exchangeItem = Spawn();
                 var collectComponent = exchangeItem.GetComponent<CollectComponent>();
-                collectComponent.SetTarget(_targetPlant);
+                collectComponent.SetTarget(_targetPlant.gameObject);
             }
 
             GameSession.Instance.Inventory.Remove(this, _itemId, spawnAmount);
         }
 
-        //TODO: Возможно нужну добавить какой-нибудь интерфейс для замены PlantObject, чтобы не создавать зависимость от фабрик
+        //TODO: Возможно нужну добавить интерфейс для замены PlantObject, чтобы не создавать зависимость от фабрик
         public void SetupExchange(GameObject collectableItemPrefab, PlantObject targetPlant, int needItemsToSpawn, string itemId)
         {
             _spawnComponent.SetObject(collectableItemPrefab);
-            _targetPlant = targetPlant.gameObject;
+            _targetPlant = targetPlant;
             _needItemsToSpawn = needItemsToSpawn;
             _itemId = itemId;
             ReadyForExchange = true;

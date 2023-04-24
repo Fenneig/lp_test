@@ -905,6 +905,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: CopperMine
       objectReference: {fileID: 0}
+    - target: {fileID: 905691597905098968, guid: 653762b4e06bd8445a45a501a1c10be0, type: 3}
+      propertyPath: _duration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 905691597905098968, guid: 653762b4e06bd8445a45a501a1c10be0, type: 3}
+      propertyPath: _strength
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 905691597905098969, guid: 653762b4e06bd8445a45a501a1c10be0, type: 3}
       propertyPath: m_RootOrder
       value: 1

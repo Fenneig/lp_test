@@ -62,7 +62,7 @@ PrefabInstance:
     - target: {fileID: 580125925610168649, guid: fd61c60e56eee86488fce892f37b41ff, type: 3}
       propertyPath: _particle
       value: 
-      objectReference: {fileID: 4346986780555666537}
+      objectReference: {fileID: 2283997353956813607}
     - target: {fileID: 580125925610168649, guid: fd61c60e56eee86488fce892f37b41ff, type: 3}
       propertyPath: _meshRenderer
       value: 
@@ -81,9 +81,9 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 7ea071c89d9960348be3aa3f59a27cee, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd61c60e56eee86488fce892f37b41ff, type: 3}
---- !u!198 &4346986780555666537 stripped
+--- !u!198 &2283997353956813607 stripped
 ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 6153628035878705131, guid: fd61c60e56eee86488fce892f37b41ff, type: 3}
+  m_CorrespondingSourceObject: {fileID: 8541056989923285157, guid: fd61c60e56eee86488fce892f37b41ff, type: 3}
   m_PrefabInstance: {fileID: 7581121036104086402}
   m_PrefabAsset: {fileID: 0}
 --- !u!23 &7005498886220691454 stripped
